@@ -1,0 +1,24 @@
+Hi Bankr, please deploy two contracts for Cap on Base mainnet (chain id 8453). Do not send any CAPH or ETH to them. Source: https://github.com/CAPSTILLER/caph-vault
+
+1) CAPHVault
+Source file: paste/CAPHVault.paste.sol (contract name CAPHVault)
+Constructor args, in order:
+  1. caph_ (address): 0x1D1bCD1459259429ACcde23e24E1782f83e97bA3
+  2. initialOwner (address): 0xD8382719b8fF90eE3Dd521B9d7c5dc23E8e4EAca
+  3. treasury_ (address): 0xCF1ac98565DA846E8263604b49C1276Ed78A0981
+  4. globalDailyCap_ (uint256): 500000000000000000000000   (500,000 CAPH, 18 decimals)
+ABI-encoded args:
+0000000000000000000000001d1bcd1459259429accde23e24e1782f83e97ba3000000000000000000000000d8382719b8ff90ee3dd521b9d7c5dc23e8e4eaca000000000000000000000000cf1ac98565da846e8263604b49c1276ed78a09810000000000000000000000000000000000000000000069e10de76676d0800000
+
+2) HighScoreRecords
+Source file: paste/HighScoreRecords.paste.sol (contract name HighScoreRecords)
+Constructor args, in order:
+  1. initialOwner (address): 0xD8382719b8fF90eE3Dd521B9d7c5dc23E8e4EAca
+ABI-encoded args:
+000000000000000000000000d8382719b8ff90ee3dd521b9d7c5dc23e8e4eaca
+
+Compiler settings (both): solc 0.8.24, optimizer enabled with 200 runs, EVM version cancun, metadata bytecode hash none, MIT license. Standard JSON inputs for verification are in verify/.
+
+The owner is Cap's Ledger (0xD838...EAca). Your deployer wallet gets no rights. Do not call setGame or setWriter; Cap signs all owner setup from the Ledger via Rabby after deploy.
+
+Please verify both on BaseScan and send back: both contract addresses, deploy tx hashes, block numbers, verification links, and confirm owner() = 0xD8382719b8fF90eE3Dd521B9d7c5dc23E8e4EAca on both, treasury() = 0xCF1ac98565DA846E8263604b49C1276Ed78A0981 and globalDailyCap() = 500000000000000000000000 on CAPHVault.

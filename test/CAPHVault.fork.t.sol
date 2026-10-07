@@ -10,7 +10,7 @@ import {CAPHVault} from "../src/CAPHVault.sol";
 ///   BASE_RPC_URL=https://mainnet.base.org forge test --match-contract Fork
 contract CAPHVaultForkTest is Test {
     address internal constant CAPH = 0x1D1bCD1459259429ACcde23e24E1782f83e97bA3;
-    address internal constant OWNER = 0x1a72f7314297B0b8f6808A9248969A8108F49890;
+    address internal constant OWNER = 0xD8382719b8fF90eE3Dd521B9d7c5dc23E8e4EAca;
     address internal constant TREASURY = 0xCF1ac98565DA846E8263604b49C1276Ed78A0981;
 
     CAPHVault internal vault;

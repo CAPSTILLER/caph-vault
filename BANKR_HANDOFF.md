@@ -1,6 +1,6 @@
 # BANKR handoff: CAPHVault + HighScoreRecords (Base mainnet)
 
-Two independent contracts. Deploy `CAPHVault` first, then `HighScoreRecords` (order does not matter, neither references the other). The deployer wallet gets **no rights** in either; the owner is set in the constructor.
+Two independent contracts. Deploy `CAPHVault` first, then `HighScoreRecords` (order does not matter, neither references the other). The deployer wallet gets **no rights** in either; the owner (Cap's Ledger `0xD8382719b8fF90eE3Dd521B9d7c5dc23E8e4EAca`) is set in the constructor, so Bankr can deploy from any funded wallet.
 
 Do not send CAPH or ETH as part of deployment. Cap funds the vault himself afterwards. Plain ETH sends to either contract revert.
 
@@ -19,32 +19,32 @@ Do not send CAPH or ETH as part of deployment. Cap funds the vault himself after
 | # | Name | Type | Value | Meaning |
 | --- | --- | --- | --- | --- |
 | 1 | `caph_` | address | `0x1D1bCD1459259429ACcde23e24E1782f83e97bA3` | $CAPH token on Base (18 decimals) |
-| 2 | `initialOwner` | address | `0x1a72f7314297B0b8f6808A9248969A8108F49890` | Cap's wallet (owns CAPs Mind / tablets) |
-| 3 | `treasury_` | address | `0xCF1ac98565DA846E8263604b49C1276Ed78A0981` | Cap's GEAR treasury, receives fees (**Cap to confirm**) |
+| 2 | `initialOwner` | address | `0xD8382719b8fF90eE3Dd521B9d7c5dc23E8e4EAca` | Cap's Ledger cold wallet (same owner as GearVault, used through Rabby) |
+| 3 | `treasury_` | address | `0xCF1ac98565DA846E8263604b49C1276Ed78A0981` | Cap's GEAR treasury, receives fees (confirmed by Cap) |
 | 4 | `globalDailyCap_` | uint256 | `500000000000000000000000` | 500,000 CAPH per UTC day, all games together |
 
 One line, for tools that take a comma list:
 
 ```
-0x1D1bCD1459259429ACcde23e24E1782f83e97bA3,0x1a72f7314297B0b8f6808A9248969A8108F49890,0xCF1ac98565DA846E8263604b49C1276Ed78A0981,500000000000000000000000
+0x1D1bCD1459259429ACcde23e24E1782f83e97bA3,0xD8382719b8fF90eE3Dd521B9d7c5dc23E8e4EAca,0xCF1ac98565DA846E8263604b49C1276Ed78A0981,500000000000000000000000
 ```
 
 ABI-encoded (append to creation bytecode, or paste into BaseScan "Constructor Arguments"):
 
 ```
-0000000000000000000000001d1bcd1459259429accde23e24e1782f83e97ba30000000000000000000000001a72f7314297b0b8f6808a9248969a8108f49890000000000000000000000000cf1ac98565da846e8263604b49c1276ed78a09810000000000000000000000000000000000000000000069e10de76676d0800000
+0000000000000000000000001d1bcd1459259429accde23e24e1782f83e97ba3000000000000000000000000d8382719b8ff90ee3dd521b9d7c5dc23e8e4eaca000000000000000000000000cf1ac98565da846e8263604b49c1276ed78a09810000000000000000000000000000000000000000000069e10de76676d0800000
 ```
 
 ## 2. HighScoreRecords: constructor arguments, in order
 
 | # | Name | Type | Value |
 | --- | --- | --- | --- |
-| 1 | `initialOwner` | address | `0x1a72f7314297B0b8f6808A9248969A8108F49890` |
+| 1 | `initialOwner` | address | `0xD8382719b8fF90eE3Dd521B9d7c5dc23E8e4EAca` |
 
 ABI-encoded:
 
 ```
-0000000000000000000000001a72f7314297b0b8f6808a9248969a8108f49890
+000000000000000000000000d8382719b8ff90ee3dd521b9d7c5dc23e8e4eaca
 ```
 
 ## Source files to use
@@ -78,7 +78,9 @@ A dry run on a Base fork (done before handoff) estimated about 2.86M gas for bot
 
 Compile `paste/CAPHVault.paste.sol` and `paste/HighScoreRecords.paste.sol` with the settings above, deploy with the constructor arguments above, then verify on BaseScan with the matching Standard JSON input from `verify/` (or `forge verify-contract`).
 
-## 3. After deploy: owner setup (from `0x1a72...9890`)
+## 3. After deploy: owner setup (signed from the Ledger via Rabby)
+
+The owner is Cap's Ledger `0xD8382719b8fF90eE3Dd521B9d7c5dc23E8e4EAca`. Every owner call below (`setGame`, `setWriter`, and later `pause`, `setTreasury`, caps, `emergencyWithdraw`) must be signed by Cap from the Ledger through Rabby. Bankr's deployer wallet cannot make these calls. The `cast send` lines show the exact function and arguments to enter in Rabby (or run them with `--ledger` on a machine with the Ledger attached).
 
 Game addresses are not known yet, so no game is approved at deploy. Payouts are impossible until the owner calls `setGame`. Cap provides each game's server signer address.
 
@@ -112,13 +114,13 @@ cast send <VAULT> "deposit(uint256,bytes32)" <AMOUNT_WEI> 0x00000000000000000000
 
 | Read | Expected |
 | --- | --- |
-| `CAPHVault.owner()` | `0x1a72f7314297B0b8f6808A9248969A8108F49890` |
+| `CAPHVault.owner()` | `0xD8382719b8fF90eE3Dd521B9d7c5dc23E8e4EAca` |
 | `CAPHVault.caph()` | `0x1D1bCD1459259429ACcde23e24E1782f83e97bA3` |
 | `CAPHVault.treasury()` | `0xCF1ac98565DA846E8263604b49C1276Ed78A0981` |
 | `CAPHVault.globalDailyCap()` | `500000000000000000000000` |
 | `CAPHVault.paused()` | `false` |
 | `CAPHVault.pendingOwner()` | `0x0000000000000000000000000000000000000000` |
-| `HighScoreRecords.owner()` | `0x1a72f7314297B0b8f6808A9248969A8108F49890` |
+| `HighScoreRecords.owner()` | `0xD8382719b8fF90eE3Dd521B9d7c5dc23E8e4EAca` |
 
 Send back: both contract addresses, deploy transaction hashes, block numbers, and BaseScan verification links.
 
@@ -148,8 +150,8 @@ Send back: both contract addresses, deploy transaction hashes, block numbers, an
 
 ## Decisions for Cap
 
-1. **Owner wallet.** `0x1a72...9890` as requested. Onchain it is an EIP-7702 delegated smart account (a hot-ish wallet). Your GearVault is owned by the Ledger cold wallet `0xD8382719b8fF90eE3Dd521B9d7c5dc23E8e4EAca` with a separate hot operator. For a vault holding real CAPH, consider the Ledger as owner (you can also deploy with `0x1a72` and move ownership later in two steps).
-2. **Treasury.** `0xCF1ac98565DA846E8263604b49C1276Ed78A0981` (an EOA). The GearVault source has no treasury concept, so nothing there suggested a different address. Changeable later with `setTreasury`.
+1. **Owner wallet (decided).** Cap's Ledger `0xD8382719b8fF90eE3Dd521B9d7c5dc23E8e4EAca` (a plain EOA onchain, same owner as GearVault) owns both contracts. All owner calls are signed from the Ledger via Rabby. Each game server signer stays a separate hot wallet, like the GearVault operator.
+2. **Treasury (decided).** `0xCF1ac98565DA846E8263604b49C1276Ed78A0981`, kept as Cap confirmed. Changeable later by the owner with `setTreasury` (signed from the Ledger).
 3. **Caps per game.** Suggested Arena 400,000/day with 10,000 per payout, Substrate 100,000/day with 1,000 per payout, inside the 500,000 global cap. Substrate numbers are placeholders until the game exists.
 4. **NFT bot daily claims.** Recommend a separate signer registered as its own "game" with `maxPerPayout = 100 CAPH` (the mythic amount) and a daily cap near what 1,000 bots can claim (average about 23.5 CAPH per bot, so about 23,500/day; 30,000 suggested). Routing claims through the Arena signer would allow 10,000 per call instead of 100.
 5. **Antes go into the vault** (matches the Arena ledger: `walletToVault`). Nothing is burned. If you want antes burned instead, say so; the vault has no burn by design.

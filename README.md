@@ -14,7 +14,9 @@ Two contracts, Solidity 0.8.24, OpenZeppelin 5.7.0, Foundry. No proxies, no upgr
 
 Token: $CAPH (CAPhet) `0x1D1bCD1459259429ACcde23e24E1782f83e97bA3` on Base, 18 decimals, total supply 100,000,000,000 CAPH. All amounts in the contracts are in wei (1 CAPH = `1000000000000000000`).
 
-**Deploying?** Read [`BANKR_HANDOFF.md`](BANKR_HANDOFF.md).
+Owner of both contracts (constructor `initialOwner`): Cap's Ledger `0xD8382719b8fF90eE3Dd521B9d7c5dc23E8e4EAca` (same owner as GearVault), used through Rabby. Treasury: `0xCF1ac98565DA846E8263604b49C1276Ed78A0981`. Global daily cap: 500,000 CAPH. All owner calls (`setGame`, `setWriter`, pause, caps, treasury, emergency withdraw) are signed from the Ledger.
+
+**Deploying?** Read [`BANKR_HANDOFF.md`](BANKR_HANDOFF.md), or paste [`BANKR_MESSAGE.txt`](BANKR_MESSAGE.txt) to Bankr.
 
 ## Layout
 
