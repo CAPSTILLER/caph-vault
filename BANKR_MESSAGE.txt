@@ -1,3 +1,15 @@
+PRE-COMPILED BYTECODE READY (Bankr sandbox was down)
+
+Deploy without compiling. Use these CREATE payloads (no value; owner = Cap's Ledger via constructor):
+
+https://raw.githubusercontent.com/CAPSTILLER/caph-vault/main/deploy/CAPHVault.deploy-data.hex
+https://raw.githubusercontent.com/CAPSTILLER/caph-vault/main/deploy/HighScoreRecords.deploy-data.hex
+
+Paste-ready copy for Cap → Bankr: deploy/BANKR_MESSAGE.txt
+Full notes: deploy/README.md
+
+---
+
 Hi Bankr, please deploy two contracts for Cap on Base mainnet (chain id 8453). Do not send any CAPH or ETH to them. Source: https://github.com/CAPSTILLER/caph-vault
 
 1) CAPHVault

@@ -1,0 +1,1052 @@
+{
+  "abi": [
+    {
+      "type": "constructor",
+      "inputs": [
+        {
+          "name": "initialOwner",
+          "type": "address",
+          "internalType": "address"
+        }
+      ],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "acceptOwnership",
+      "inputs": [],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "botRecord",
+      "inputs": [
+        {
+          "name": "nft",
+          "type": "address",
+          "internalType": "address"
+        },
+        {
+          "name": "tokenId",
+          "type": "uint256",
+          "internalType": "uint256"
+        },
+        {
+          "name": "gameId",
+          "type": "uint32",
+          "internalType": "uint32"
+        },
+        {
+          "name": "mode",
+          "type": "uint32",
+          "internalType": "uint32"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "tuple",
+          "internalType": "struct HighScoreRecords.Record",
+          "components": [
+            {
+              "name": "best",
+              "type": "uint64",
+              "internalType": "uint64"
+            },
+            {
+              "name": "last",
+              "type": "uint64",
+              "internalType": "uint64"
+            },
+            {
+              "name": "bestAt",
+              "type": "uint64",
+              "internalType": "uint64"
+            },
+            {
+              "name": "lastAt",
+              "type": "uint64",
+              "internalType": "uint64"
+            }
+          ]
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "owner",
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "",
+          "type": "address",
+          "internalType": "address"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "pendingOwner",
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "",
+          "type": "address",
+          "internalType": "address"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "recordBotScore",
+      "inputs": [
+        {
+          "name": "nft",
+          "type": "address",
+          "internalType": "address"
+        },
+        {
+          "name": "tokenId",
+          "type": "uint256",
+          "internalType": "uint256"
+        },
+        {
+          "name": "mode",
+          "type": "uint32",
+          "internalType": "uint32"
+        },
+        {
+          "name": "score",
+          "type": "uint64",
+          "internalType": "uint64"
+        },
+        {
+          "name": "ref",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "recordWalletScore",
+      "inputs": [
+        {
+          "name": "wallet",
+          "type": "address",
+          "internalType": "address"
+        },
+        {
+          "name": "mode",
+          "type": "uint32",
+          "internalType": "uint32"
+        },
+        {
+          "name": "score",
+          "type": "uint64",
+          "internalType": "uint64"
+        },
+        {
+          "name": "ref",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "renounceOwnership",
+      "inputs": [],
+      "outputs": [],
+      "stateMutability": "pure"
+    },
+    {
+      "type": "function",
+      "name": "setWriter",
+      "inputs": [
+        {
+          "name": "writer",
+          "type": "address",
+          "internalType": "address"
+        },
+        {
+          "name": "gameId",
+          "type": "uint32",
+          "internalType": "uint32"
+        }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "transferOwnership",
+      "inputs": [
+        {
+          "name": "newOwner",
+          "type": "address",
+          "internalType": "address"
+        }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "walletRecord",
+      "inputs": [
+        {
+          "name": "wallet",
+          "type": "address",
+          "internalType": "address"
+        },
+        {
+          "name": "gameId",
+          "type": "uint32",
+          "internalType": "uint32"
+        },
+        {
+          "name": "mode",
+          "type": "uint32",
+          "internalType": "uint32"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "tuple",
+          "internalType": "struct HighScoreRecords.Record",
+          "components": [
+            {
+              "name": "best",
+              "type": "uint64",
+              "internalType": "uint64"
+            },
+            {
+              "name": "last",
+              "type": "uint64",
+              "internalType": "uint64"
+            },
+            {
+              "name": "bestAt",
+              "type": "uint64",
+              "internalType": "uint64"
+            },
+            {
+              "name": "lastAt",
+              "type": "uint64",
+              "internalType": "uint64"
+            }
+          ]
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "writerGame",
+      "inputs": [
+        {
+          "name": "writer",
+          "type": "address",
+          "internalType": "address"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "gameId",
+          "type": "uint32",
+          "internalType": "uint32"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "event",
+      "name": "BotScore",
+      "inputs": [
+        {
+          "name": "gameId",
+          "type": "uint32",
+          "indexed": true,
+          "internalType": "uint32"
+        },
+        {
+          "name": "nft",
+          "type": "address",
+          "indexed": true,
+          "internalType": "address"
+        },
+        {
+          "name": "tokenId",
+          "type": "uint256",
+          "indexed": true,
+          "internalType": "uint256"
+        },
+        {
+          "name": "mode",
+          "type": "uint32",
+          "indexed": false,
+          "internalType": "uint32"
+        },
+        {
+          "name": "score",
+          "type": "uint64",
+          "indexed": false,
+          "internalType": "uint64"
+        },
+        {
+          "name": "best",
+          "type": "uint64",
+          "indexed": false,
+          "internalType": "uint64"
+        },
+        {
+          "name": "newBest",
+          "type": "bool",
+          "indexed": false,
+          "internalType": "bool"
+        },
+        {
+          "name": "ref",
+          "type": "bytes32",
+          "indexed": false,
+          "internalType": "bytes32"
+        }
+      ],
+      "anonymous": false
+    },
+    {
+      "type": "event",
+      "name": "OwnershipTransferStarted",
+      "inputs": [
+        {
+          "name": "previousOwner",
+          "type": "address",
+          "indexed": true,
+          "internalType": "address"
+        },
+        {
+          "name": "newOwner",
+          "type": "address",
+          "indexed": true,
+          "internalType": "address"
+        }
+      ],
+      "anonymous": false
+    },
+    {
+      "type": "event",
+      "name": "OwnershipTransferred",
+      "inputs": [
+        {
+          "name": "previousOwner",
+          "type": "address",
+          "indexed": true,
+          "internalType": "address"
+        },
+        {
+          "name": "newOwner",
+          "type": "address",
+          "indexed": true,
+          "internalType": "address"
+        }
+      ],
+      "anonymous": false
+    },
+    {
+      "type": "event",
+      "name": "WalletScore",
+      "inputs": [
+        {
+          "name": "gameId",
+          "type": "uint32",
+          "indexed": true,
+          "internalType": "uint32"
+        },
+        {
+          "name": "mode",
+          "type": "uint32",
+          "indexed": true,
+          "internalType": "uint32"
+        },
+        {
+          "name": "wallet",
+          "type": "address",
+          "indexed": true,
+          "internalType": "address"
+        },
+        {
+          "name": "score",
+          "type": "uint64",
+          "indexed": false,
+          "internalType": "uint64"
+        },
+        {
+          "name": "best",
+          "type": "uint64",
+          "indexed": false,
+          "internalType": "uint64"
+        },
+        {
+          "name": "newBest",
+          "type": "bool",
+          "indexed": false,
+          "internalType": "bool"
+        },
+        {
+          "name": "ref",
+          "type": "bytes32",
+          "indexed": false,
+          "internalType": "bytes32"
+        }
+      ],
+      "anonymous": false
+    },
+    {
+      "type": "event",
+      "name": "WriterSet",
+      "inputs": [
+        {
+          "name": "writer",
+          "type": "address",
+          "indexed": true,
+          "internalType": "address"
+        },
+        {
+          "name": "gameId",
+          "type": "uint32",
+          "indexed": true,
+          "internalType": "uint32"
+        }
+      ],
+      "anonymous": false
+    },
+    {
+      "type": "error",
+      "name": "NotWriter",
+      "inputs": [
+        {
+          "name": "caller",
+          "type": "address",
+          "internalType": "address"
+        }
+      ]
+    },
+    {
+      "type": "error",
+      "name": "OwnableInvalidOwner",
+      "inputs": [
+        {
+          "name": "owner",
+          "type": "address",
+          "internalType": "address"
+        }
+      ]
+    },
+    {
+      "type": "error",
+      "name": "OwnableUnauthorizedAccount",
+      "inputs": [
+        {
+          "name": "account",
+          "type": "address",
+          "internalType": "address"
+        }
+      ]
+    },
+    {
+      "type": "error",
+      "name": "RenounceDisabled",
+      "inputs": []
+    },
+    {
+      "type": "error",
+      "name": "ZeroAddress",
+      "inputs": []
+    }
+  ],
+  "bytecode": {
+    "object": "0x608060405234801561000f575f80fd5b50604051610ae3380380610ae383398101604081905261002e916100d7565b806001600160a01b03811661005c57604051631e4fbdf760e01b81525f600482015260240160405180910390fd5b6100658161006c565b5050610104565b600180546001600160a01b031916905561008581610088565b50565b5f80546001600160a01b038381166001600160a01b0319831681178455604051919092169283917f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e09190a35050565b5f602082840312156100e7575f80fd5b81516001600160a01b03811681146100fd575f80fd5b9392505050565b6109d2806101115f395ff3fe608060405234801561000f575f80fd5b50600436106100a6575f3560e01c8063da00d0721161006e578063da00d07214610289578063dcab28401461029c578063e2e4b725146102af578063e30c3978146102e9578063eea0a39f146102fa578063f2fde38b1461030d575f80fd5b8063715018a6146100aa57806379ba5097146100b45780638da5cb5b146100bc578063c46f9d90146100e5578063d1c499ad146101d4575b5f80fd5b6100b2610320565b005b6100b2610339565b5f546001600160a01b03165b6040516001600160a01b0390911681526020015b60405180910390f35b6101906100f336600461083a565b60408051608080820183525f808352602080840182905283850182905260609384018290526001600160a01b039790971681526003875283812063ffffffff9687168252875283812094909516855292855292819020815192830182525467ffffffffffffffff8082168452600160401b8204811695840195909552600160801b8104851691830191909152600160c01b90049092169082015290565b6040516100dc9190815167ffffffffffffffff9081168252602080840151821690830152604080840151821690830152606092830151169181019190915260800190565b6101906101e236600461087a565b60408051608080820183525f808352602080840182905283850182905260609384018290526001600160a01b039890981681526004885283812096815295875282862063ffffffff9586168752875282862093909416855291855292839020835192830184525467ffffffffffffffff8082168452600160401b8204811695840195909552600160801b8104851693830193909352600160c01b9092049092169082015290565b6100b26102973660046108db565b610382565b6100b26102aa366004610923565b61046f565b6102d46102bd366004610974565b60026020525f908152604090205463ffffffff1681565b60405163ffffffff90911681526020016100dc565b6001546001600160a01b03166100c8565b6100b2610308366004610994565b61056c565b6100b261031b366004610974565b6105f5565b604051638905116560e01b815260040160405180910390fd5b60015433906001600160a01b031681146103765760405163118cdaa760e01b81526001600160a01b03821660048201526024015b60405180910390fd5b61037f81610665565b50565b5f61038c3361067e565b90506001600160a01b0385166103b55760405163d92e233d60e01b815260040160405180910390fd5b6001600160a01b0385165f90815260036020908152604080832063ffffffff80861685529083528184209088168452909152812081906103f590866106cd565b6040805167ffffffffffffffff898116825284166020820152821515818301526060810188905290519294509092506001600160a01b0389169163ffffffff89811692908716917fa8b36ee649fba700c8754f21ea392c85714bb9bdb5551306aa91e805b6132b209181900360800190a450505050505050565b5f6104793361067e565b90506001600160a01b0386166104a25760405163d92e233d60e01b815260040160405180910390fd5b6001600160a01b0386165f908152600460209081526040808320888452825280832063ffffffff80861685529083528184209088168452909152812081906104ea90866106cd565b6040805163ffffffff8a8116825267ffffffffffffffff8a81166020840152851682840152831515606083015260808201899052915193955091935089926001600160a01b038c1692918716917faf09e80ca39200b79c933c0ee192943e860d50c477fad04a68e05642418c54c0919081900360a00190a45050505050505050565b610574610794565b6001600160a01b03821661059b5760405163d92e233d60e01b815260040160405180910390fd5b6001600160a01b0382165f81815260026020526040808220805463ffffffff191663ffffffff861690811790915590519092917f3cd5efe09933e0d8ef98894359141c7bef1edf24a2877f4a8c551564e7a5505291a35050565b6105fd610794565b600180546001600160a01b0383166001600160a01b0319909116811790915561062d5f546001600160a01b031690565b6001600160a01b03167f38d16b8cac22d99fc7c124b9cd0de2d3fa1faef420bfe791d8c362d765e2270060405160405180910390a350565b600180546001600160a01b031916905561037f816107c2565b6001600160a01b0381165f9081526002602052604081205463ffffffff16908190036106c857604051631765348f60e21b81526001600160a01b038316600482015260240161036d565b919050565b815467ffffffffffffffff42818116600160c01b026001600160c01b03838616600160401b81029190911677ffffffffffffffff0000000000000000ffffffffffffffff90951694909417178086555f93849391909116108061074057508454600160801b900467ffffffffffffffff16155b9150811561078157845467ffffffffffffffff828116600160801b0277ffffffffffffffff0000000000000000ffffffffffffffff19909216908616171785555b50925467ffffffffffffffff1693915050565b5f546001600160a01b031633146107c05760405163118cdaa760e01b815233600482015260240161036d565b565b5f80546001600160a01b038381166001600160a01b0319831681178455604051919092169283917f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e09190a35050565b80356001600160a01b03811681146106c8575f80fd5b803563ffffffff811681146106c8575f80fd5b5f805f6060848603121561084c575f80fd5b61085584610811565b925061086360208501610827565b915061087160408501610827565b90509250925092565b5f805f806080858703121561088d575f80fd5b61089685610811565b9350602085013592506108ab60408601610827565b91506108b960608601610827565b905092959194509250565b803567ffffffffffffffff811681146106c8575f80fd5b5f805f80608085870312156108ee575f80fd5b6108f785610811565b935061090560208601610827565b9250610913604086016108c4565b9396929550929360600135925050565b5f805f805f60a08688031215610937575f80fd5b61094086610811565b94506020860135935061095560408701610827565b9250610963606087016108c4565b949793965091946080013592915050565b5f60208284031215610984575f80fd5b61098d82610811565b9392505050565b5f80604083850312156109a5575f80fd5b6109ae83610811565b91506109bc60208401610827565b9050925092905056fea164736f6c6343000818000a"
+  },
+  "deployedBytecode": {
+    "object": "0x608060405234801561000f575f80fd5b50600436106100a6575f3560e01c8063da00d0721161006e578063da00d07214610289578063dcab28401461029c578063e2e4b725146102af578063e30c3978146102e9578063eea0a39f146102fa578063f2fde38b1461030d575f80fd5b8063715018a6146100aa57806379ba5097146100b45780638da5cb5b146100bc578063c46f9d90146100e5578063d1c499ad146101d4575b5f80fd5b6100b2610320565b005b6100b2610339565b5f546001600160a01b03165b6040516001600160a01b0390911681526020015b60405180910390f35b6101906100f336600461083a565b60408051608080820183525f808352602080840182905283850182905260609384018290526001600160a01b039790971681526003875283812063ffffffff9687168252875283812094909516855292855292819020815192830182525467ffffffffffffffff8082168452600160401b8204811695840195909552600160801b8104851691830191909152600160c01b90049092169082015290565b6040516100dc9190815167ffffffffffffffff9081168252602080840151821690830152604080840151821690830152606092830151169181019190915260800190565b6101906101e236600461087a565b60408051608080820183525f808352602080840182905283850182905260609384018290526001600160a01b039890981681526004885283812096815295875282862063ffffffff9586168752875282862093909416855291855292839020835192830184525467ffffffffffffffff8082168452600160401b8204811695840195909552600160801b8104851693830193909352600160c01b9092049092169082015290565b6100b26102973660046108db565b610382565b6100b26102aa366004610923565b61046f565b6102d46102bd366004610974565b60026020525f908152604090205463ffffffff1681565b60405163ffffffff90911681526020016100dc565b6001546001600160a01b03166100c8565b6100b2610308366004610994565b61056c565b6100b261031b366004610974565b6105f5565b604051638905116560e01b815260040160405180910390fd5b60015433906001600160a01b031681146103765760405163118cdaa760e01b81526001600160a01b03821660048201526024015b60405180910390fd5b61037f81610665565b50565b5f61038c3361067e565b90506001600160a01b0385166103b55760405163d92e233d60e01b815260040160405180910390fd5b6001600160a01b0385165f90815260036020908152604080832063ffffffff80861685529083528184209088168452909152812081906103f590866106cd565b6040805167ffffffffffffffff898116825284166020820152821515818301526060810188905290519294509092506001600160a01b0389169163ffffffff89811692908716917fa8b36ee649fba700c8754f21ea392c85714bb9bdb5551306aa91e805b6132b209181900360800190a450505050505050565b5f6104793361067e565b90506001600160a01b0386166104a25760405163d92e233d60e01b815260040160405180910390fd5b6001600160a01b0386165f908152600460209081526040808320888452825280832063ffffffff80861685529083528184209088168452909152812081906104ea90866106cd565b6040805163ffffffff8a8116825267ffffffffffffffff8a81166020840152851682840152831515606083015260808201899052915193955091935089926001600160a01b038c1692918716917faf09e80ca39200b79c933c0ee192943e860d50c477fad04a68e05642418c54c0919081900360a00190a45050505050505050565b610574610794565b6001600160a01b03821661059b5760405163d92e233d60e01b815260040160405180910390fd5b6001600160a01b0382165f81815260026020526040808220805463ffffffff191663ffffffff861690811790915590519092917f3cd5efe09933e0d8ef98894359141c7bef1edf24a2877f4a8c551564e7a5505291a35050565b6105fd610794565b600180546001600160a01b0383166001600160a01b0319909116811790915561062d5f546001600160a01b031690565b6001600160a01b03167f38d16b8cac22d99fc7c124b9cd0de2d3fa1faef420bfe791d8c362d765e2270060405160405180910390a350565b600180546001600160a01b031916905561037f816107c2565b6001600160a01b0381165f9081526002602052604081205463ffffffff16908190036106c857604051631765348f60e21b81526001600160a01b038316600482015260240161036d565b919050565b815467ffffffffffffffff42818116600160c01b026001600160c01b03838616600160401b81029190911677ffffffffffffffff0000000000000000ffffffffffffffff90951694909417178086555f93849391909116108061074057508454600160801b900467ffffffffffffffff16155b9150811561078157845467ffffffffffffffff828116600160801b0277ffffffffffffffff0000000000000000ffffffffffffffff19909216908616171785555b50925467ffffffffffffffff1693915050565b5f546001600160a01b031633146107c05760405163118cdaa760e01b815233600482015260240161036d565b565b5f80546001600160a01b038381166001600160a01b0319831681178455604051919092169283917f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e09190a35050565b80356001600160a01b03811681146106c8575f80fd5b803563ffffffff811681146106c8575f80fd5b5f805f6060848603121561084c575f80fd5b61085584610811565b925061086360208501610827565b915061087160408501610827565b90509250925092565b5f805f806080858703121561088d575f80fd5b61089685610811565b9350602085013592506108ab60408601610827565b91506108b960608601610827565b905092959194509250565b803567ffffffffffffffff811681146106c8575f80fd5b5f805f80608085870312156108ee575f80fd5b6108f785610811565b935061090560208601610827565b9250610913604086016108c4565b9396929550929360600135925050565b5f805f805f60a08688031215610937575f80fd5b61094086610811565b94506020860135935061095560408701610827565b9250610963606087016108c4565b949793965091946080013592915050565b5f60208284031215610984575f80fd5b61098d82610811565b9392505050565b5f80604083850312156109a5575f80fd5b6109ae83610811565b91506109bc60208401610827565b9050925092905056fea164736f6c6343000818000a"
+  },
+  "metadata": {
+    "compiler": {
+      "version": "0.8.24+commit.e11b9ed9"
+    },
+    "language": "Solidity",
+    "output": {
+      "abi": [
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "initialOwner",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "constructor"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "caller",
+              "type": "address"
+            }
+          ],
+          "type": "error",
+          "name": "NotWriter"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "owner",
+              "type": "address"
+            }
+          ],
+          "type": "error",
+          "name": "OwnableInvalidOwner"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "account",
+              "type": "address"
+            }
+          ],
+          "type": "error",
+          "name": "OwnableUnauthorizedAccount"
+        },
+        {
+          "inputs": [],
+          "type": "error",
+          "name": "RenounceDisabled"
+        },
+        {
+          "inputs": [],
+          "type": "error",
+          "name": "ZeroAddress"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint32",
+              "name": "gameId",
+              "type": "uint32",
+              "indexed": true
+            },
+            {
+              "internalType": "address",
+              "name": "nft",
+              "type": "address",
+              "indexed": true
+            },
+            {
+              "internalType": "uint256",
+              "name": "tokenId",
+              "type": "uint256",
+              "indexed": true
+            },
+            {
+              "internalType": "uint32",
+              "name": "mode",
+              "type": "uint32",
+              "indexed": false
+            },
+            {
+              "internalType": "uint64",
+              "name": "score",
+              "type": "uint64",
+              "indexed": false
+            },
+            {
+              "internalType": "uint64",
+              "name": "best",
+              "type": "uint64",
+              "indexed": false
+            },
+            {
+              "internalType": "bool",
+              "name": "newBest",
+              "type": "bool",
+              "indexed": false
+            },
+            {
+              "internalType": "bytes32",
+              "name": "ref",
+              "type": "bytes32",
+              "indexed": false
+            }
+          ],
+          "type": "event",
+          "name": "BotScore",
+          "anonymous": false
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "previousOwner",
+              "type": "address",
+              "indexed": true
+            },
+            {
+              "internalType": "address",
+              "name": "newOwner",
+              "type": "address",
+              "indexed": true
+            }
+          ],
+          "type": "event",
+          "name": "OwnershipTransferStarted",
+          "anonymous": false
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "previousOwner",
+              "type": "address",
+              "indexed": true
+            },
+            {
+              "internalType": "address",
+              "name": "newOwner",
+              "type": "address",
+              "indexed": true
+            }
+          ],
+          "type": "event",
+          "name": "OwnershipTransferred",
+          "anonymous": false
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint32",
+              "name": "gameId",
+              "type": "uint32",
+              "indexed": true
+            },
+            {
+              "internalType": "uint32",
+              "name": "mode",
+              "type": "uint32",
+              "indexed": true
+            },
+            {
+              "internalType": "address",
+              "name": "wallet",
+              "type": "address",
+              "indexed": true
+            },
+            {
+              "internalType": "uint64",
+              "name": "score",
+              "type": "uint64",
+              "indexed": false
+            },
+            {
+              "internalType": "uint64",
+              "name": "best",
+              "type": "uint64",
+              "indexed": false
+            },
+            {
+              "internalType": "bool",
+              "name": "newBest",
+              "type": "bool",
+              "indexed": false
+            },
+            {
+              "internalType": "bytes32",
+              "name": "ref",
+              "type": "bytes32",
+              "indexed": false
+            }
+          ],
+          "type": "event",
+          "name": "WalletScore",
+          "anonymous": false
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "writer",
+              "type": "address",
+              "indexed": true
+            },
+            {
+              "internalType": "uint32",
+              "name": "gameId",
+              "type": "uint32",
+              "indexed": true
+            }
+          ],
+          "type": "event",
+          "name": "WriterSet",
+          "anonymous": false
+        },
+        {
+          "inputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "acceptOwnership"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "nft",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "tokenId",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint32",
+              "name": "gameId",
+              "type": "uint32"
+            },
+            {
+              "internalType": "uint32",
+              "name": "mode",
+              "type": "uint32"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "botRecord",
+          "outputs": [
+            {
+              "internalType": "struct HighScoreRecords.Record",
+              "name": "",
+              "type": "tuple",
+              "components": [
+                {
+                  "internalType": "uint64",
+                  "name": "best",
+                  "type": "uint64"
+                },
+                {
+                  "internalType": "uint64",
+                  "name": "last",
+                  "type": "uint64"
+                },
+                {
+                  "internalType": "uint64",
+                  "name": "bestAt",
+                  "type": "uint64"
+                },
+                {
+                  "internalType": "uint64",
+                  "name": "lastAt",
+                  "type": "uint64"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "owner",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ]
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "pendingOwner",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ]
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "nft",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "tokenId",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint32",
+              "name": "mode",
+              "type": "uint32"
+            },
+            {
+              "internalType": "uint64",
+              "name": "score",
+              "type": "uint64"
+            },
+            {
+              "internalType": "bytes32",
+              "name": "ref",
+              "type": "bytes32"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "recordBotScore"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "wallet",
+              "type": "address"
+            },
+            {
+              "internalType": "uint32",
+              "name": "mode",
+              "type": "uint32"
+            },
+            {
+              "internalType": "uint64",
+              "name": "score",
+              "type": "uint64"
+            },
+            {
+              "internalType": "bytes32",
+              "name": "ref",
+              "type": "bytes32"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "recordWalletScore"
+        },
+        {
+          "inputs": [],
+          "stateMutability": "pure",
+          "type": "function",
+          "name": "renounceOwnership"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "writer",
+              "type": "address"
+            },
+            {
+              "internalType": "uint32",
+              "name": "gameId",
+              "type": "uint32"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "setWriter"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "newOwner",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "transferOwnership"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "wallet",
+              "type": "address"
+            },
+            {
+              "internalType": "uint32",
+              "name": "gameId",
+              "type": "uint32"
+            },
+            {
+              "internalType": "uint32",
+              "name": "mode",
+              "type": "uint32"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "walletRecord",
+          "outputs": [
+            {
+              "internalType": "struct HighScoreRecords.Record",
+              "name": "",
+              "type": "tuple",
+              "components": [
+                {
+                  "internalType": "uint64",
+                  "name": "best",
+                  "type": "uint64"
+                },
+                {
+                  "internalType": "uint64",
+                  "name": "last",
+                  "type": "uint64"
+                },
+                {
+                  "internalType": "uint64",
+                  "name": "bestAt",
+                  "type": "uint64"
+                },
+                {
+                  "internalType": "uint64",
+                  "name": "lastAt",
+                  "type": "uint64"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "writer",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "writerGame",
+          "outputs": [
+            {
+              "internalType": "uint32",
+              "name": "gameId",
+              "type": "uint32"
+            }
+          ]
+        }
+      ],
+      "devdoc": {
+        "kind": "dev",
+        "methods": {
+          "acceptOwnership()": {
+            "details": "The new owner accepts the ownership transfer."
+          },
+          "owner()": {
+            "details": "Returns the address of the current owner."
+          },
+          "pendingOwner()": {
+            "details": "Returns the address of the pending owner."
+          },
+          "transferOwnership(address)": {
+            "details": "Starts the ownership transfer of the contract to a new account. Replaces the pending transfer if there is one. Can only be called by the current owner. Setting `newOwner` to the zero address is allowed; this can be used to cancel an initiated ownership transfer."
+          }
+        },
+        "version": 1
+      },
+      "userdoc": {
+        "kind": "user",
+        "methods": {
+          "recordBotScore(address,uint256,uint32,uint64,bytes32)": {
+            "notice": "Record a bot NFT's score for the caller's game."
+          },
+          "recordWalletScore(address,uint32,uint64,bytes32)": {
+            "notice": "Record a wallet's score for the caller's game. `ref` is an optional round / run id."
+          },
+          "renounceOwnership()": {
+            "notice": "Disabled: records must always have an owner who can rotate writers."
+          },
+          "setWriter(address,uint32)": {
+            "notice": "Authorize `writer` for `gameId`, or remove it with gameId = 0."
+          }
+        },
+        "version": 1
+      }
+    },
+    "settings": {
+      "remappings": [
+        "@openzeppelin/contracts/=lib/openzeppelin-contracts/contracts/",
+        "erc4626-tests/=lib/openzeppelin-contracts/lib/erc4626-tests/",
+        "forge-std/=lib/forge-std/src/",
+        "halmos-cheatcodes/=lib/openzeppelin-contracts/lib/halmos-cheatcodes/src/",
+        "openzeppelin-contracts/=lib/openzeppelin-contracts/"
+      ],
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "metadata": {
+        "bytecodeHash": "none"
+      },
+      "compilationTarget": {
+        "src/HighScoreRecords.sol": "HighScoreRecords"
+      },
+      "evmVersion": "cancun",
+      "libraries": {}
+    },
+    "sources": {
+      "lib/openzeppelin-contracts/contracts/access/Ownable.sol": {
+        "keccak256": "0xff6d0bb2e285473e5311d9d3caacb525ae3538a80758c10649a4d61029b017bb",
+        "urls": [
+          "bzz-raw://8ed324d3920bb545059d66ab97d43e43ee85fd3bd52e03e401f020afb0b120f6",
+          "dweb:/ipfs/QmfEckWLmZkDDcoWrkEvMWhms66xwTLff9DDhegYpvHo1a"
+        ],
+        "license": "MIT"
+      },
+      "lib/openzeppelin-contracts/contracts/access/Ownable2Step.sol": {
+        "keccak256": "0xdcad8898fda432696597752e8ec361b87d85c82cb258115427af006dacf7128c",
+        "urls": [
+          "bzz-raw://e2c9d517f0c136d54bd00cd57959d25681d4d6273f5bbbc263afe228303772f0",
+          "dweb:/ipfs/QmReNFjXBiufByiAAzfSQ2SM5r3qeUErn46BmN3yVRvrek"
+        ],
+        "license": "MIT"
+      },
+      "lib/openzeppelin-contracts/contracts/utils/Context.sol": {
+        "keccak256": "0x493033a8d1b176a037b2cc6a04dad01a5c157722049bbecf632ca876224dd4b2",
+        "urls": [
+          "bzz-raw://6a708e8a5bdb1011c2c381c9a5cfd8a9a956d7d0a9dc1bd8bcdaf52f76ef2f12",
+          "dweb:/ipfs/Qmax9WHBnVsZP46ZxEMNRQpLQnrdE4dK8LehML1Py8FowF"
+        ],
+        "license": "MIT"
+      },
+      "src/HighScoreRecords.sol": {
+        "keccak256": "0x6415ee1ddcd7f928cc3a783bbd64ae01da253bec7ae1cc162eba231ad20fafb8",
+        "urls": [
+          "bzz-raw://a6a75c102209db25afc0446d11985379f8a6dfc4b2ce403b0b2389f3cff72d53",
+          "dweb:/ipfs/QmZHFnQ643L6VQzC3grhya1WahK5WTuqB9xVUx33X5FmRa"
+        ],
+        "license": "MIT"
+      }
+    },
+    "version": 1
+  }
+}

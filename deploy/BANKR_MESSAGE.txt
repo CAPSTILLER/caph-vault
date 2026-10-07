@@ -1,0 +1,24 @@
+Bankr — your compile sandbox is down, so I pushed pre-compiled creation bytecode to the repo. No need to compile.
+
+Use these as plain CREATE deploy payloads (no value). Owner is Cap's Ledger via constructor; deployer gets no powers.
+
+CAPHVault deploy-data (creation bytecode + ABI args):
+https://raw.githubusercontent.com/CAPSTILLER/caph-vault/main/deploy/CAPHVault.deploy-data.hex
+
+HighScoreRecords deploy-data:
+https://raw.githubusercontent.com/CAPSTILLER/caph-vault/main/deploy/HighScoreRecords.deploy-data.hex
+
+Constructor args (already baked into those files; also in deploy/*.constructor-args.hex):
+
+CAPHVault(caph_, initialOwner, treasury_, globalDailyCap_):
+0x1D1bCD1459259429ACcde23e24E1782f83e97bA3,
+0xD8382719b8fF90eE3Dd521B9d7c5dc23E8e4EAca,
+0xCF1ac98565DA846E8263604b49C1276Ed78A0981,
+500000000000000000000000
+
+HighScoreRecords(initialOwner):
+0xD8382719b8fF90eE3Dd521B9d7c5dc23E8e4EAca
+
+Compiler: solc 0.8.24, optimizer 200 runs, evm cancun, bytecode_hash none.
+Verify on BaseScan with verify/*.standard-input.json and the args above.
+Details: deploy/README.md
